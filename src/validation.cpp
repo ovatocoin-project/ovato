@@ -93,7 +93,7 @@ static void CheckBlockIndex(const Consensus::Params& consensusParams);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const std::string strMessageMagic = "Litecoin Signed Message:\n";
+const std::string strMessageMagic = "OVATO Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -1045,9 +1045,15 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     if (halvings >= 64)
         return 0;
 
-    CAmount nSubsidy = 50 * COIN;
+    CAmount nSubsidy = 25 * COIN;
     // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
-    nSubsidy >>= halvings;
+    if (nHeight == 3) {
+        nSubsidy = 29000000 * COIN;
+    } else if (nHeight == 900000) {
+        nSubsidy = 400000 * COIN;
+    } else {
+        nSubsidy >>= halvings;
+    }
     return nSubsidy;
 }
 
