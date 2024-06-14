@@ -100,6 +100,9 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1485561600; // January 28, 2017
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1529079471;   // January 31st, 2018
 
+        // Check transactions for duplicated inputs from this height
+        consensus.nDuplicateInputHeight = std::numeric_limits<int>::max();
+
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
 
@@ -203,6 +206,9 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1483228800; // January 1, 2017
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1529079471;   // January 31st, 2018
 
+        // Check transactions for duplicated inputs from this height
+        consensus.nDuplicateInputHeight = std::numeric_limits<int>::max();
+
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
 
@@ -296,6 +302,9 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1483228800; // January 1, 2017
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1529079471;   // January 31st, 2018
 
+        // Check transactions for duplicated inputs from this height
+        consensus.nDuplicateInputHeight = std::numeric_limits<int>::max();
+
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
 
@@ -342,10 +351,6 @@ public:
             52446,
             0
         };
-
-            1603685347,
-            52446,
-            0};
     }
 };
 
